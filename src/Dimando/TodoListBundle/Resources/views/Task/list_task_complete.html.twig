@@ -1,0 +1,11 @@
+
+{% if tasks_complete is empty %}
+    No completed tasks
+{% endif %}
+{% for task_complete in tasks_complete %}
+    <div class="checkbox complete-task">
+        <input checked disabled type="checkbox">
+        <h4 style="margin: 0">{{ task_complete.name }} | {{ task_complete.priority }} | completed on {{ task_complete.updatedAt|date('d-m-Y - H:i') }}</h4>
+        <p>{{ task_complete.description }}</p>
+    </div>
+{% endfor %}

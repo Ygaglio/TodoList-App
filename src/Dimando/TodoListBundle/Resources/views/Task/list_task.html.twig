@@ -1,0 +1,11 @@
+
+{% if tasks is empty %}
+    No tasks
+{% endif %}
+{% for task in tasks %}
+    <div class="checkbox">
+        <a onclick="changeTaskComplete({{ task.id }});return false;" class="select-task" href="{{ path('dimando_todo_list_change_complete', {id : task.id}) }}">  </a>
+        <h4 style="margin: 0">{{ task.name }} | {{ task.priority }}</h4>
+            <p>{{ task.description }}</p>
+    </div>
+{% endfor %}

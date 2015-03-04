@@ -1,0 +1,27 @@
+parameters:
+    dimando.taskform_handler.class: Dimando\TodoListBundle\Form\Handler\TaskHandler
+    dimando.tasktype.class: Dimando\TodoListBundle\Form\TaskType
+    dimando.gettasks.class: Dimando\TodoListBundle\Services\TasksPart
+
+services:
+    dimando.taskform:
+        factory_service: form.factory
+        factory_method: createNamed
+        class: Symfony\Component\Form\Form
+        arguments:
+            - form_task
+            - dimando_todolistbundle_task
+
+    dimando.task_type:
+        class: %dimando.tasktype.class%
+        tags:
+            - { name: form.type, alias: dimando_todolistbundle_task}
+
+    dimando.taskform_handler:
+         class: %dimando.taskform_handler.class%
+         arguments: [@dimando.taskform, @request, @doctrine.orm.entity_manager]
+         scope: request
+
+    dimando.gettask:
+         class: %dimando.gettasks.class%
+         arguments: [@doctrine.orm.entity_manager, @twig]

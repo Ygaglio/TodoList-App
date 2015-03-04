@@ -1,0 +1,21 @@
+dimando_todo_list_homepage:
+    path:     /
+    defaults: { _controller: DimandoTodoListBundle:TodoList:index }
+
+dimando_todo_list_create:
+    path:     /createTask
+    defaults: { _controller: DimandoTodoListBundle:TodoList:createTask }
+    options:
+        expose: true
+
+dimando_todo_list_create_ajax:
+    path:     /createTaskAjax
+    defaults: { _controller: DimandoTodoListBundle:TodoList:createTaskAjax }
+    options:
+        expose: true
+
+dimando_todo_list_change_complete:
+    path:     /changeCompleteTask/{id}
+    defaults: { _controller: DimandoTodoListBundle:TodoList:completeTask }
+    options:
+        expose: true

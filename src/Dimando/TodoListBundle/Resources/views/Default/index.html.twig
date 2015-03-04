@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="container row">
+        <div class="col-lg-6">
+            {{  render(controller('DimandoTodoListBundle:TodoList:displayTaskForm')) }}
+        </div>
+        <div class="col-lg-6">
+
+            <h2>Open tasks</h2>
+
+            {% for flashMessage in app.session.flashbag.get("task") %}
+                <div class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            <div class="task_list">
+                {{ tasks|raw }}
+            </div>
+
+            <h2>Completed Tasks</h2>
+            <div class="task_list_complete">
+                {{ tasks_complete|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+ {% block scripts %}
+     <script src="{{ asset('bundles/dimandotodolist/js/app.js') }}"></script>
+ {% endblock %}

@@ -1,0 +1,31 @@
+<h2>Create Task</h2>
+
+<form class="taskForm" action="{{ path('dimando_todo_list_create') }}" {{ form_enctype(form) }} method="POST">
+
+    {% for flashMessage in app.session.flashbag.get("notice") %}
+            {{ flashMessage|raw}}
+    {% endfor %}
+
+
+    <div class="form-message statetaskform">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.name, { 'attr': { 'placeholder': 'Name (required)'|trans, 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.description, { 'attr': { 'placeholder': 'Description'|trans, 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.priority, { 'attr': { 'placeholder': 'Priority'|trans, 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.submit, { 'attr': { 'placeholder': 'Priority'|trans, 'class': 'btn btn-primary btn-create-task', 'onclick': 'addTask();return false;'} }) }}
+    </div>
+
+        {{ form_rest(form) }}
+</form>

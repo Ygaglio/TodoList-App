@@ -1,0 +1,42 @@
+.container{
+    width: 1020px;
+    margin: 0 auto;
+}
+
+h2{
+    margin-bottom: 30px;
+}
+
+.checkbox:hover{
+    color: #265a88;
+}
+.complete-task {
+    opacity: 0.6;
+}
+.checkbox{
+    margin: 20px 0;
+}
+.checkbox p {
+    word-break: break-all;
+}
+
+.task_list_complete {
+    margin-left: 20px;
+}
+.task_list_complete label{
+    cursor: initial;
+}
+.select-task {
+    background: url('../../dimandotodolist/images/check.png') no-repeat;
+    padding-left: 15px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+
+@media (max-width:567px){
+    .container {
+        width: 402px;
+    }
+}
